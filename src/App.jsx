@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🚀 Kripto Para Takip</h1>
+        <h1> Kripto Para Takip</h1>
         <div className={`connection-status ${isConnected ? 'connected' : 'disconnected'}`}>
           <span className="status-dot"></span>
           {isConnected ? 'Bağlı' : 'Bağlantı Kuruluyor...'}
