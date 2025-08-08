@@ -1,0 +1,153 @@
+.coin-card {
+    background: linear-gradient(145deg, #1e1e2e, #2a2a3e);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    min-width: 280px;
+    max-width: 300px;
+    flex: 0 1 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.coin-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.3s ease;
+}
+
+.coin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.coin-card.up::before {
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+}
+
+.coin-card.down::before {
+    background: linear-gradient(90deg, transparent, #ff4757, transparent);
+}
+
+.coin-card.stable::before {
+    background: linear-gradient(90deg, transparent, #ffa502, transparent);
+}
+
+.coin-symbol {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.coin-price {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.coin-change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.change-arrow {
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.coin-card.up .change-arrow {
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.coin-card.down .change-arrow {
+    color: #ff4757;
+    text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+.coin-card.stable .change-arrow {
+    color: #ffa502;
+    text-shadow: 0 0 10px rgba(255, 165, 2, 0.5);
+}
+
+.change-percent {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+.coin-card.up .change-percent {
+    color: #00ff88;
+}
+
+.coin-card.down .change-percent {
+    color: #ff4757;
+}
+
+.coin-card.stable .change-percent {
+    color: #ffa502;
+}
+
+.price-change {
+    font-size: 14px;
+    text-align: center;
+    color: #a0a0a0;
+    font-family: 'Courier New', monospace;
+}
+
+.coin-card.loading {
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading .coin-symbol,
+.loading .coin-price,
+.loading .change-percent {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .coin-card {
+        min-width: 250px;
+        padding: 20px;
+        margin: 8px;
+    }
+
+    .coin-price {
+        font-size: 24px;
+    }
+
+    .change-percent {
+        font-size: 16px;
+    }
+}
